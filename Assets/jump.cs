@@ -18,13 +18,18 @@ public class jump : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && isOnGround){
             Debug.Log("Espacio Pulsado");
             this.GetComponent<Rigidbody>().AddForce(Vector3.up * 200);
-            isOnGround = false;
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Ground")){
             isOnGround =  true;
+        }        
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Ground")){
+            isOnGround =  false;
         }        
     }
 }
