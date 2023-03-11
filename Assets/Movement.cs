@@ -12,7 +12,10 @@ public class Movement : MonoBehaviour
 
     // Update is called once per frame
     public float speed = 5.0f;
-    public float growth = 1.0f;
+    [SerializeField]
+    public float growths = 1;
+    [SerializeField]
+    public float growthRate = 1.2f;
     private float xInput; 
     private float zInput;
     void Update()
@@ -42,8 +45,8 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Growing Tile"))
             {
                 Debug.Log("Capsula agrandada");
-                this.transform.localScale = new Vector3( 1.5f * growth, 1.5f * growth, 1.5f * growth);
-                growth += 1.0f;
+                this.transform.localScale = new Vector3( growthRate * growths, growthRate * growths, growthRate * growths);
+                growths *= growthRate;
             }
     }
     void OnTriggerExit(Collider other)
