@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour
 
     // Update is called once per frame
     public float speed = 5.0f;
+    public float growth = 1.0f;
     private float xInput; 
     private float zInput;
     void Update()
@@ -30,8 +31,24 @@ public class Movement : MonoBehaviour
         }  
 
         if(collision.gameObject.layer == LayerMask.NameToLayer("Death Tile")){
-            Debug.Log("Capsule destroyed");
+            Debug.Log("Capsula destruida");
             Destroy(this.gameObject);
-        }      
+        }
+        
+        
+    }
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Growing Tile"))
+            {
+                Debug.Log("Capsula agrandada");
+                this.transform.localScale = new Vector3( 1.5f * growth, 1.5f * growth, 1.5f * growth);
+                growth += 1.0f;
+            }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Capsula destruida");
+        Destroy(this.gameObject);
     }
 }
