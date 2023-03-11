@@ -5,15 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Wall
+  - DeathTile
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
+  - Wall
+  - Death Tile
   - 
   - 
   - 

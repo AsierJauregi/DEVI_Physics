@@ -22,13 +22,13 @@ public class jump : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.Layer == LayerMask.LayerToName("Ground")){
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Ground")){
             isOnGround =  true;
         }        
     }
     private void OnCollisionExit(Collision collision)
     {
-        if(collision.gameObject.Layer == LayerMask.LayerToName("Ground")){
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Ground")){
             isOnGround =  false;
         }        
     }

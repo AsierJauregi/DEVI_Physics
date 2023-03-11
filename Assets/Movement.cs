@@ -25,11 +25,11 @@ public class Movement : MonoBehaviour
     
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.Layer == LayerMask.LayerToName("Wall")){
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Wall")){
             Debug.Log("Collision con pared");
         }  
 
-        if(collision.gameObject.Layer == LayerMask.LayerToName("Death Tile")){
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Death Tile")){
             Debug.Log("Capsule destroyed");
             Destroy(this.gameObject);
         }      
