@@ -19,8 +19,7 @@ public class Shooting : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)){
             GameObject newBullet = Instantiate(bullet);
-
-            //newBullet.transform.Translate();
+            newBullet.transform.position = this.gameObject.transform.position;
             newBullet.GetComponent<Rigidbody>().AddForce(Vector3.forward * force);
         }
     }
